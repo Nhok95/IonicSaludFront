@@ -1,9 +1,25 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>bpms</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button 
+        defaultHref="">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>PPM</ion-title>
   </ion-toolbar>
 </ion-header>
 
+<ion-content>
+  <div class="ion-padding">
+    <ion-card>
+      <ion-card-header>
+        Bar Chart
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #barCanvas></canvas>
+      </ion-card-content>
+    </ion-card>
+  </div>
 <ion-content>
 
 </ion-content>

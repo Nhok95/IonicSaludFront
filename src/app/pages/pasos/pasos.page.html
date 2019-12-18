@@ -1,11 +1,45 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>pasos</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button 
+        defaultHref="">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>Pasos</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-  <h1>Hey bitch, I'm pickle Rick!!!</h1>
+  <div class="ion-padding">
+    <ion-card>
+      <ion-card-header>
+        Bar Chart
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #barCanvas></canvas>
+      </ion-card-content>
+    </ion-card>
 
+    <button ion-button (click)="datosDia()">Por Dia</button>
+    <button ion-button (click)="datosSemana()">Por Semana</button>
+
+    <ion-card>
+      <ion-card-header>
+        Doughnut Chart
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #doughnutCanvas></canvas>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        Line Chart
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #lineCanvas></canvas>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>

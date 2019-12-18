@@ -1,9 +1,9 @@
 export class StepInfo {
-    steps: number;
+    stepAccumulated: number;
     datetime: Date;
 
-    constructor(steps?: number, datetime?: Date) {
-        this.steps = steps;
+    constructor(stepAccumulated?: number, datetime?: Date) {
+        this.stepAccumulated = stepAccumulated;
         this.datetime = datetime;
     }
 } 
