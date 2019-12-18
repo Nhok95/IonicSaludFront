@@ -115,21 +115,13 @@ export class Tab1Page implements OnInit{
         color: 'black',
       },
       backgroundColor: {
-        fill: '#ccccff',
-        stroke: '#111111',
-        strokeWidth: 10
+        fill: '#ddddff'
       },
       chartArea: {
         left:30,top:30,width:'70%',height:'70%'
       },
-      colors:['green','blue'],
-      legend:{position: 'labeled'},
-      pieSliceBorderColor: 'black',
-      tooltip: {
-        textStyle: {color: '#FF00FF', showColorCode: true},
-        isHtml: false
-      },
-      width:250
+      colors:['red','blue'],
+      legend:{position: 'labeled'}
     }
                     
   

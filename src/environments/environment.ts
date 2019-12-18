@@ -4,8 +4,9 @@
 
 export const environment = {
   production: false,
-  apiURL: 'http://10.250.5.12:8080/api', //frontend
-  userCode: 100, //100: Igor Dito
+  //apiURL: 'http://10.250.5.12:8080/api', //frontend
+  apiURL: 'http://saludback.herokuapp.com/api',
+  userCode: 50, //100: Igor Dito,  50: Maria Garcia, 120:Alberto Fuerte
   systemDate: new Date(2019, 11, 17, 15, 30, 0, 0) //17/11/2019 15:30:00:000 
 };
 
