@@ -29,27 +29,37 @@ export class UserService {
     return this.http.get<User>(this.userURL)
   }
 
-  getPulsaciones(d1: Date, d2: Date):Observable<BpmInfo[]> {
-
+  getPulsaciones(d1: Date, d2?: Date):Observable<BpmInfo[]> {
     let d1str = this.timeService.dateFormatter(d1);
-    let d2str = this.timeService.dateFormatter(d2);
-
-    return this.http.get<BpmInfo[]>(this.regURL+ "/bpm?desde=" + d1str + "&hasta=" + d2str);
+    if (!d2) {
+      return this.http.get<BpmInfo[]>(this.regURL+ "/bpm?desde=" + d1str);
+    } else {
+      let d2str = this.timeService.dateFormatter(d2);
+      return this.http.get<BpmInfo[]>(this.regURL+ "/bpm?desde=" + d1str + "&hasta=" + d2str);
+    }
 
   }
 
-  getPasos(d1: Date, d2: Date):Observable<StepInfo[]> {
-
+  getPasos(d1: Date, d2?: Date):Observable<StepInfo[]> {
     let d1str = this.timeService.dateFormatter(d1);
-    let d2str = this.timeService.dateFormatter(d2);
-    return this.http.get<StepInfo[]>(this.regURL+ "/pasos?desde=" + d1str + "&hasta=" + d2str);
+    if (!d2) {
+      return this.http.get<StepInfo[]>(this.regURL+ "/pasos?desde=" + d1str);
+    } else {
+      let d2str = this.timeService.dateFormatter(d2);
+      return this.http.get<StepInfo[]>(this.regURL+ "/pasos?desde=" + d1str + "&hasta=" + d2str);
+    }
     
   }
 
-  getEstados(d1: Date, d2: Date):Observable<EstadoInfo[]> {
+  getEstados(d1: Date, d2?: Date):Observable<EstadoInfo[]> {
     let d1str = this.timeService.dateFormatter(d1);
-    let d2str = this.timeService.dateFormatter(d2);
-    return this.http.get<EstadoInfo[]>(this.regURL+ "/estados?desde=" + d1str + "&hasta=" + d2str);
+    if (!d2) {
+      return this.http.get<EstadoInfo[]>(this.regURL+ "/estados?desde=" + d1str);
+    } else {
+      let d2str = this.timeService.dateFormatter(d2);
+      return this.http.get<EstadoInfo[]>(this.regURL+ "/estados?desde=" + d1str + "&hasta=" + d2str);
+    }
+    
   }
 
   //"http://10.250.5.12:8080/api/registros/100/bpm?desde=2019/11/18 00:00:00 UTC&hasta=2019/11/18 01:00:00 UTC"

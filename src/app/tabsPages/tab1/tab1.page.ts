@@ -45,6 +45,8 @@ export class Tab1Page implements OnInit{
   hoy: Date = environment.systemDate
   ayer: Date = new Date(this.hoy.getTime() - 86400000);
 
+  URL: string = environment.apiURL;
+
   constructor(private userService: UserService) {
 
     console.log(this.hoy);
@@ -141,13 +143,17 @@ export class Tab1Page implements OnInit{
   showChartSuenyoMiDia () {
 
     //console.log(this.TodayEstados);
-    console.log(this.TodayEstados);
 
-    let estadosLength = this.TodayEstados.length;
-    //1440
+    //let estadosLength = this.TodayEstados.length;
 
     // Create the data.
     let data = google.visualization.arrayToDataTable([
+      ['Type', 'Hours per Day'],
+      ['Sueño ligero', this.TodayEstados.filter(x => x.estado==2).length*5 ],
+      ['Sueño profundo', this.TodayEstados.filter(x => x.estado==1).length*5],
+      ['Despierto', this.TodayEstados.filter(x => x.estado != 1 && x.estado!=2).length*5]
+    ]);
+    /*let data = google.visualization.arrayToDataTable([
       ['Type', 'Hours per Day'],
       ['Sueño ligero', 
         Math.round(this.TodayEstados.filter(x => x.estado==2).length*1440/estadosLength) ],
@@ -155,7 +161,7 @@ export class Tab1Page implements OnInit{
         Math.round(this.TodayEstados.filter(x => x.estado==1).length*1440 /estadosLength)],
       ['Despierto', 
         Math.round(this.TodayEstados.filter(x => x.estado != 1 && x.estado!=2).length*1440/estadosLength)]
-    ]);
+    ]);*/
   
     // Set chart options
     let options = {
