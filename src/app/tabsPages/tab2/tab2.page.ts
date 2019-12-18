@@ -32,6 +32,8 @@ export class Tab2Page implements OnInit {
       );
     });
 
+    
+
     //this.showChart();
     //this.showChart2();
     //this.showChart3();
