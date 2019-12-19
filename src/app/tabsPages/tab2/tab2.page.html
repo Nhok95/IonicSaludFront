@@ -29,25 +29,86 @@
       <ion-label>{{this.user.nombre}} {{this.user.apellido}}</ion-label>
     </ion-item>
 
-    <ion-icon slot="start" color="medium"></ion-icon>
-    <h6>Edad: {{this.edad}} años</h6>
-    <h6>Sexo: {{this.user.sexo}}</h6>
-    <h6>Peso: {{this.user.peso}} kg</h6>
-    <h6>Altura: {{this.user.altura}} m</h6>
-    <ion-progress-bar></ion-progress-bar>
+    <ion-item>
+      <h6>Edad: {{this.edad}} años</h6>
+    </ion-item>
+    <ion-item>
+      <h6>Sexo: {{this.user.sexo}}</h6>
+    </ion-item>
+    <ion-item>
+      <h6>Peso: {{this.user.peso}} kg</h6>
+    </ion-item>
+    <ion-item>
+      <h6>Altura: {{this.user.altura}} m</h6>
+    </ion-item>
 
+    <ion-progress-bar color="danger"></ion-progress-bar>
 
-    <ion-segment (ionChange)="segmentChanged($event)">
-      <ion-segment-button value="dia">
-        <ion-label>Día</ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="semana">
-        <ion-label>Semana</ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="mes">
-        <ion-label>Mes</ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="ano">
-        <ion-label>Año</ion-label>
-      </ion-segment-button>
-    </ion-segment>
+    <ion-list lines="full">
+      <ion-item>
+        <p>Doy permiso a generali para gestionar mis datos de pulsaciones</p>
+        <ion-toggle slot="end"  
+                    style="--background-checked: #fab7bd;
+                           --handle-background-checked: #B40C1B;"
+                    checked>
+        </ion-toggle>
+      </ion-item>
+  
+      <ion-item>
+        <p>Doy permiso a Generali para gestionar mis datos de pasos</p>
+        <ion-toggle slot="end"  
+                    style="--background-checked: #fab7bd;
+                           --handle-background-checked: #B40C1B;"
+                    checked>
+        </ion-toggle>
+      </ion-item>
+  
+      <ion-item>
+        <p>Doy permiso a Generali para gestionar mis datos de horas de sueño</p>
+        <ion-toggle slot="end"  
+                    style="--background-checked: #fab7bd;
+                           --handle-background-checked: #B40C1B;"
+                    checked>
+        </ion-toggle>
+      </ion-item>
+
+      <ion-item>
+        <p>Doy permiso a Generali para gestionar mis datos de calorías</p>
+        <ion-toggle slot="end"  
+                    style="--background-checked: #fab7bd;
+                           --handle-background-checked: #B40C1B;"
+                    checked>
+        </ion-toggle>
+      </ion-item>
+
+      <ion-progress-bar color="danger"></ion-progress-bar>
+      
+    </ion-list>
+    
+    <!--Contratar-->
+    <ion-card>
+      <ion-item>
+        <ion-icon slot="start" color="medium" name="gift"></ion-icon>
+        <h4>Seguro</h4>
+      </ion-item>
+
+      <ion-grid>
+        <ion-row>
+
+          <ion-col></ion-col>
+          <ion-col>
+            <ion-button style="--background:#B40C1B" routerLink="tab3">Contrata</ion-button>
+          </ion-col>
+          <ion-col></ion-col>
+
+        </ion-row>
+      </ion-grid>
+
+    </ion-card>
+
+  </ion-list>
+</ion-content>
+    <!--"-->
+    
+    
+    

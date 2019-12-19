@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
+import { PasosPage } from 'src/app/pages/pasos/pasos.page';
 
 const routes: Routes = [
   {
@@ -48,7 +49,28 @@ const routes: Routes = [
     path: '',
     redirectTo: '/tabs/tab1',
     pathMatch: 'full'
+  },
+  {
+    path: 'tabs/tab1/tab3',
+    redirectTo: '/tabs/tab3',
+    pathMatch: 'full'
+  },
+  {
+    path: 'tabs/tab2/tab3',
+    redirectTo: '/tabs/tab3',
+    pathMatch: 'full'
+  },
+  {
+    path: 'pasos',
+    component: PasosPage,
+    pathMatch: 'full'
+  },
+  {
+    path: 'bpms',
+    component: PasosPage,
+    pathMatch: 'full'
   }
+
 ];
 
 @NgModule({

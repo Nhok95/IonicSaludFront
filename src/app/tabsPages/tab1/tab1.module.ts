@@ -16,6 +16,8 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [Tab1Page]
+  declarations: [
+    Tab1Page
+  ]
 })
 export class Tab1PageModule {}

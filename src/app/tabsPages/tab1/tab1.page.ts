@@ -21,13 +21,13 @@ export class Tab1Page implements OnInit{
   
 
   //BPMs
-  currentBPM : number = Math.floor(Math.random() * 4 + 57);
-  maxBPM: number = 57;
+  currentBPM : number = Math.floor(Math.random() * 5 + 57);
+  maxBPM: number = this.currentBPM;
 
   TodayBPMs: BpmInfo[] = [];
   TodayEstados: EstadoInfo[] = [];
 
-  hostBPMs: string = environment.host + "/bpms" ;
+  //hostBPMs: string = environment.host + "/bpms" ;
 
   //Steps
   steps: number = 6798;
@@ -37,7 +37,7 @@ export class Tab1Page implements OnInit{
   sizeBar: number = 4;
   rowsBar: number[] = Array(this.sizeBar).fill(0);
 
-  hostSteps: string = environment.host + "/pasos" ;
+  //hostSteps: string = environment.host + "/pasos" ;
 
   //Calorias
   caloriesBurned: number = 578;
@@ -93,6 +93,7 @@ export class Tab1Page implements OnInit{
 
         
     }, 5000);
+
   }
 
   ngOnDestroy() {
@@ -116,31 +117,6 @@ export class Tab1Page implements OnInit{
       )/1000
     }
   }
-
-  /*showChartSteps () {
-
-    // Create the data.
-    let data = google.visualization.arrayToDataTable([
-      /*['Year', 'Visitations', { role: 'style' } ],
-      ['2010', 10, 'color: gray'],
-      ['2020', 14, 'color: #76A7FA'],
-      ['2030', 16, 'opacity: 0.2'],
-      ['2040', 22, 'stroke-color: #703593; stroke-width: 4; fill-color: #C5A5CF'],
-      ['2050', 28, 'stroke-color: #871B47; stroke-opacity: 0.6; stroke-width: 8; fill-color: #BC5679; fill-opacity: 0.2']
-    ]);
-    
-  
-    // Set chart options
-    let options = {
-      title: 'Steps'
-    };
-                  
-    // Instantiate and draw our chart, passing in some options.
-    var chart = new google.visualization.ColumnChart(document.getElementById('chart_Steps'));
-    chart.draw(data, options);
-   
-  }*/
-
 
   // Charts
 
@@ -178,7 +154,8 @@ export class Tab1Page implements OnInit{
       chartArea: {
         left:30,top:30,width:'70%',height:'70%'
       },
-      legend:{position: 'labeled'}
+      legend:{position: 'labeled'},
+      colors: ['lightblue', 'DodgerBlue', 'MediumOrchid']
     }
                     
   

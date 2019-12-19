@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header >
   <ion-toolbar>
     <ion-title style="text-align: center">
       Generali fit
@@ -25,7 +25,7 @@
       </ion-item>
 
       <!-- Pulsaciones -->
-      <ion-item href= {{hostBPMs}}>
+      <ion-item href='bpms'>
         <ion-icon slot="start" color="medium" name="heart-empty"></ion-icon>
         <h5>Pulsaciones</h5> 
       </ion-item>
@@ -35,10 +35,10 @@
         <p style="text-align: center">max: {{maxBPM}} PPM</p>
       </div>
       
-      <ion-progress-bar></ion-progress-bar>
+      <ion-progress-bar color="danger"></ion-progress-bar>
 
       <!-- Pasos -->
-      <ion-item href={{hostSteps}} >
+      <ion-item href='pasos' >
         <ion-icon slot="start" color="medium" name="walk"></ion-icon>
         <h4>Pasos</h4>
       </ion-item>
@@ -48,7 +48,8 @@
         <ion-row>
           <ion-col>
 
-            <ion-progress-bar *ngFor="let r of rowsBar" style="--progress-background:#B40C1B" value={{progressValue}} ></ion-progress-bar>
+            <ion-progress-bar *ngFor="let r of rowsBar" 
+              style="--progress-background:#B40C1B; --background: #fab7bd;" value={{progressValue}} ></ion-progress-bar>
             
           </ion-col>
           <ion-col>
@@ -60,8 +61,7 @@
       <div id="chart_Steps"></div> 
         
 
-
-      <ion-progress-bar></ion-progress-bar>
+      <ion-progress-bar color="danger"></ion-progress-bar>
 
       <!-- Sueño -->
       <ion-item>
@@ -71,7 +71,7 @@
 
       <div id="chart_SuenoMiDia"></div>
 
-      <ion-progress-bar></ion-progress-bar>
+      <ion-progress-bar color="danger"></ion-progress-bar>
     
       <!-- Calorías -->
       <ion-item>
@@ -79,10 +79,16 @@
         <h4>Calorías</h4>
       </ion-item>
 
-      <p style="text-align: center">{{calories}} calorías</p>
-      <p style="text-align: center">Objetivo: 800 calorías</p>
+      <ion-item>
+        <p style="text-align: center">{{calories}} calorías</p>
+      </ion-item>
 
-      <ion-progress-bar></ion-progress-bar>
+      <ion-item>
+        <p style="text-align: center">Objetivo: 800 calorías</p>
+      </ion-item>
+      
+
+      <ion-progress-bar color="danger"></ion-progress-bar>
 
       <!--Contratar-->
       <ion-item>
@@ -90,8 +96,19 @@
         <h4>Seguro</h4>
       </ion-item>
 
-      <!-- Expand -->
-      <ion-button href="http://localhost:8100/tabs/tab3">Contrata</ion-button>
+      <ion-grid>
+        <ion-row>
+
+          <ion-col></ion-col>
+          <ion-col>
+            <ion-button style="--background:#B40C1B" routerLink="tab3">Contrata</ion-button>
+          </ion-col>
+          <ion-col></ion-col>
+
+        </ion-row>
+      </ion-grid>
+
+      
     </ion-card>
 
 </ion-content>

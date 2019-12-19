@@ -7,12 +7,17 @@ import { TabsPageRoutingModule } from './tabs-routing.module';
 
 import { TabsPage } from './tabs.page';
 
+import { PasosPageModule } from 'src/app/pages/pasos/pasos.module';
+import { BpmsPageModule } from 'src/app/pages/bpms/bpms.module';
+
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
-    TabsPageRoutingModule
+    TabsPageRoutingModule,
+    PasosPageModule,
+    BpmsPageModule
   ],
   declarations: [TabsPage]
 })

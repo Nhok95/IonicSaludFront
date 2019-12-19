@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-//Models
-import { User } from 'src/app/models/User';
-
-// Services
-import { UserService } from 'src/app/services/user.service';
+declare var google
 
 @Component({
   selector: 'app-tab3',
@@ -13,15 +9,37 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class Tab3Page implements OnInit{
 
-  user: User = undefined;
+  constructor() {}
 
-  constructor(private userService: UserService) {}
-
-  ngOnInit(): void {
-    //Obtenemos los datos del usuario predefinido
-    this.userService.getUserInfo().subscribe(datos => {
-      console.log(datos);
-    })
+  ngOnInit(){
+ 
+    this.mostrarGrafico();
+   
+    
   }
+   
+  mostrarGrafico() {  
+      var data = google.visualization.arrayToDataTable([
+        ['Dias', '+', '-'],
+        ['0',  50,      50],
+        ['5',  50,      50],
+        ['10',  50,      50],
+        ['15',  46,      50],
+        ['20',  42,      50],
+        ['25',  38,      50],
+        ['30',  35,      50],
+      ]);
+   
+      var options = {
+        title: 'Descuento con tus buenos hábitos',
+        hAxis: {title: 'Días del mes',  titleTextStyle: {color: '#100'}},
+        vAxis: {minValue: 0}
+      };
+   
+      var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+  }
+  
 
 }
+
