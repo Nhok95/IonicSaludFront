@@ -60,14 +60,6 @@ export class Tab1Page implements OnInit{
       this.user = datos[0];
     });
 
-    this.userService.getPulsaciones(this.ayer,this.hoy).subscribe(datos => {
-      //
-    });
-
-    this.userService.getPasos(this.ayer,this.hoy).subscribe(datos => {
-      //
-    });
-
     this.userService.getEstados(this.ayer,this.hoy).subscribe(datos => {
       this.TodayEstados = datos;
       this.showChartSuenyoMiDia();
@@ -76,7 +68,6 @@ export class Tab1Page implements OnInit{
   
 
   ngOnInit(): void {
-
     
     //this.showChartSteps();
 
@@ -84,8 +75,6 @@ export class Tab1Page implements OnInit{
         //Calculos BPMs
         this.currentBPM = Math.floor(Math.random() * 4 + 57);
         if (this.currentBPM >= this.maxBPM) this.maxBPM = this.currentBPM;
-        
-        //Calculo pasos
 
         //Calculo calorias
         this.caloriesBurned += this.caloriesFormula(); 
@@ -119,10 +108,7 @@ export class Tab1Page implements OnInit{
   }
 
   // Charts
-
   showChartSuenyoMiDia () {
-
-    //console.log(this.TodayEstados);
 
     //let estadosLength = this.TodayEstados.length;
 
@@ -145,14 +131,14 @@ export class Tab1Page implements OnInit{
   
     // Set chart options
     let options = {
-      title: 'Dreaming donut',
+      title: '',
       pieHole: 0.8,
       pieSliceText: 'value',
       pieSliceTextStyle: {
         color: 'black',
       },
       chartArea: {
-        left:30,top:30,width:'70%',height:'70%'
+        left:20,top:20,width:'80%',height:'80%'
       },
       legend:{position: 'labeled'},
       colors: ['lightblue', 'DodgerBlue', 'MediumOrchid']
@@ -164,11 +150,5 @@ export class Tab1Page implements OnInit{
     chart.draw(data, options);
    
   }
-
-  //Routing Functions
-
-  /*gotoPulsaciones(){
-    this.router.navigateByUrl('tab3');
-  }*/
 
 }

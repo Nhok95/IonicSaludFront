@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
 import { PasosPage } from 'src/app/pages/pasos/pasos.page';
+import { BpmsPage } from 'src/app/pages/bpms/bpms.page';
 
 const routes: Routes = [
   {
@@ -61,12 +62,12 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'pasos',
-    component: PasosPage,
+    path: 'bpms',
+    component: BpmsPage,
     pathMatch: 'full'
   },
   {
-    path: 'bpms',
+    path: 'pasos',
     component: PasosPage,
     pathMatch: 'full'
   }
