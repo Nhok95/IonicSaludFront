@@ -1,13 +1,12 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { Chart } from 'chart.js';
 import { environment } from 'src/environments/environment';
+import { Chart } from 'chart.js';
 
 //Models
 import { StepInfo } from 'src/app/models/StepInfo';
 
 // Services
 import { UserService } from 'src/app/services/user.service';
-
 
 
 @Component({
@@ -31,7 +30,8 @@ export class PasosPage implements OnInit {
       data: [],
       backgroundColor: 'rgb(205, 65, 65)', 
       borderColor: 'rgb(230, 10, 10)',
-      borderWidth: 1
+      borderWidth: 1,
+      barPercentage:1
     }]
   }
 
@@ -42,7 +42,7 @@ export class PasosPage implements OnInit {
       scales: {
           xAxes: [{
               type: 'time',
-              distribution : 'series',
+              distribution : 'series'
           }],
           yAxes:[{
             ticks : {beginAtZero:true}
@@ -61,15 +61,14 @@ export class PasosPage implements OnInit {
 
     this.userService.getPasos(new Date(this.hoy.getTime() - 86400000), new Date(this.hoy)).subscribe(pasos =>  {
       this.registroPasos = pasos;
-      //console.log(this.registroPasos)
 
       let parsedDatos = [];
       pasos.forEach(element => {
-      parsedDatos.push({x:element.datetime , y:element.stepAccumulated})
+        parsedDatos.push({x:element.datetime , y:element.stepAccumulated})
       
       });
       this.dataGraficoPasos.datasets[0].data = parsedDatos;
-      console.log(parsedDatos)
+      //console.log(parsedDatos)
       
       this.showPasosTiempo("dia");
     })
@@ -86,7 +85,6 @@ export class PasosPage implements OnInit {
     });
     this.barChart.update(0);
   }
- 
 
   showPasosTiempo(lapso:string){
     
@@ -94,7 +92,6 @@ export class PasosPage implements OnInit {
       this.removeData();
     }
     
-
     if (lapso === "semana"){
       this.deltaTime = 604800000
       
@@ -133,6 +130,7 @@ export class PasosPage implements OnInit {
       let nuevaArrayAgrupada = []
       let dia = parsedDatosDia[0].x;
       let valores = [];
+      //console.log(parsedDatosDia[0].x.getTime() === parsedDatosDia[1].x.getTime())
       for (let i = 0; i < parsedDatosDia.length; i++){
 
         if(parsedDatosDia[i].x.getTime() === dia.getTime()) {
@@ -142,13 +140,12 @@ export class PasosPage implements OnInit {
         } else {
 
           if(valores.length > 0) {
-
+            // else {if(cond) } => else if(cond)    
             let suma = valores.reduce((total,amount) => total + amount)
             nuevaArrayAgrupada.push({x:dia, y:suma})
             dia = parsedDatosDia[i].x;
             suma = 0
             valores = []
-
           }
         }
       }
