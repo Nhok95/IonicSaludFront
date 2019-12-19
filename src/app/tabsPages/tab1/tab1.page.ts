@@ -27,6 +27,8 @@ export class Tab1Page implements OnInit{
   TodayBPMs: BpmInfo[] = [];
   TodayEstados: EstadoInfo[] = [];
 
+  hostBPMs: string = environment.host + "/bpms" ;
+
   //Steps
   steps: number = 6798;
   goal: number = 10000;
@@ -34,6 +36,8 @@ export class Tab1Page implements OnInit{
 
   sizeBar: number = 4;
   rowsBar: number[] = Array(this.sizeBar).fill(0);
+
+  hostSteps: string = environment.host + "/pasos" ;
 
   //Calorias
   caloriesBurned: number = 578;
