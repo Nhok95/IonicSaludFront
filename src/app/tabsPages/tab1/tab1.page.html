@@ -1,5 +1,5 @@
 <ion-header >
-  <ion-toolbar>
+  <ion-toolbar style="--background: #B40C1B; --color: white">
     <ion-title style="text-align: center">
       Generali fit
     </ion-title>
@@ -31,8 +31,8 @@
       </ion-item>
 
       <div >
-        <p style="text-align: center">actual: {{currentBPM}} PPM</p>
-        <p style="text-align: center">max: {{maxBPM}} PPM</p>
+        <p style="text-align: center">Actual: {{currentBPM}} PPM</p>
+        <p style="text-align: center">Max: {{maxBPM}} PPM</p>
       </div>
       
       <ion-progress-bar color="danger"></ion-progress-bar>
@@ -42,7 +42,7 @@
         <ion-icon slot="start" color="medium" name="walk"></ion-icon>
         <h4>Pasos</h4>
       </ion-item>
-      <p style="text-align: center">{{steps}} pasos</p>
+      <h5 style="text-align: center">{{steps}} pasos</h5>
       
       <ion-grid>
         <ion-row>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 declare var google
 
@@ -9,18 +9,28 @@ declare var google
 })
 export class Tab3Page implements OnInit{
 
+  scrHeight:any;
+  scrWidth:any;
+
+  @HostListener('window:resize', ['$event'])
+  
+  getScreenSize(event?) {
+      this.scrHeight = window.innerHeight;
+      this.scrWidth = window.innerWidth;
+  }
+
   constructor() {}
 
   ngOnInit(){
- 
+
+    this.getScreenSize();
     this.mostrarGrafico();
-   
-    
+  
   }
    
   mostrarGrafico() {  
       var data = google.visualization.arrayToDataTable([
-        ['Dias', '+', '-'],
+        ['Dias', 'Tu', 'Base'],
         ['0',  50,      50],
         ['5',  50,      50],
         ['10',  50,      50],
@@ -32,8 +42,10 @@ export class Tab3Page implements OnInit{
    
       var options = {
         title: 'Descuento con tus buenos hábitos',
-        hAxis: {title: 'Días del mes',  titleTextStyle: {color: '#100'}},
-        vAxis: {minValue: 0}
+        hAxis: {title: 'Días del mes',  titleTextStyle: {color: '#111'}},
+        vAxis: {minValue: 0},
+        width: this.scrWidth
+        
       };
    
       var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
